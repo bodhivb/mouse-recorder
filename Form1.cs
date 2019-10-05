@@ -16,5 +16,12 @@ namespace MouseRecorder
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            KeyboardHook kh = new KeyboardHook();
+            kh.SetHook();
+
+        }
     }
 }
