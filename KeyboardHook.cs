@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -13,7 +11,9 @@ namespace MouseRecorder
 
 
         private const int WH_KEYBOARD_LL = 13;
-        private const int WM_KEYDOWN = 0x0100;
+        private const int WM_KEYDOWN    = 0x0100;
+        private const int WM_KEYUP      = 0x0101;
+
 
         public void SetHook()
         {
@@ -26,14 +26,25 @@ namespace MouseRecorder
             WinUserDll.UnhookWindowsHookEx(hookId);
         }
 
-
         private int KeyboardHookProc (int nCode, IntPtr wParam, IntPtr lParam)
         {
-            if (wParam == (IntPtr) WM_KEYDOWN)
+            if (nCode >= 0)
             {
-                MessageBox.Show("key pressed " + (Keys)Marshal.ReadInt32(lParam));
+                if (wParam == (IntPtr)WM_KEYDOWN)
+                {
+                    if (KeyboardDownEvent != null) KeyboardDownEvent(this, (Keys) Marshal.ReadInt32(lParam));
+                }
+                else if (wParam == (IntPtr)WM_KEYUP)
+                {
+                    if (KeyboardUpEvent != null) KeyboardUpEvent(this, (Keys) Marshal.ReadInt32(lParam));
+                }
             }
+            
             return WinUserDll.CallNextHookEx(hookId, nCode, wParam, lParam);
         }
+
+        public delegate void KeyboardHandler(object sender, Keys key);
+        public event KeyboardHandler KeyboardDownEvent;
+        public event KeyboardHandler KeyboardUpEvent;
     }
 }

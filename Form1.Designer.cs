@@ -29,112 +29,113 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.checkBoxCooldown = new System.Windows.Forms.CheckBox();
+            this.checkBoxKeyboard = new System.Windows.Forms.CheckBox();
+            this.checkBoxMouseClick = new System.Windows.Forms.CheckBox();
+            this.checkBoxMouseMovement = new System.Windows.Forms.CheckBox();
+            this.buttonLoad = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonPlay = new System.Windows.Forms.Button();
+            this.buttonRecord = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.checkBox4);
-            this.panel1.Controls.Add(this.checkBox3);
-            this.panel1.Controls.Add(this.checkBox2);
-            this.panel1.Controls.Add(this.checkBox1);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.checkBoxCooldown);
+            this.panel1.Controls.Add(this.checkBoxKeyboard);
+            this.panel1.Controls.Add(this.checkBoxMouseClick);
+            this.panel1.Controls.Add(this.checkBoxMouseMovement);
+            this.panel1.Controls.Add(this.buttonLoad);
+            this.panel1.Controls.Add(this.buttonSave);
+            this.panel1.Controls.Add(this.buttonPlay);
+            this.panel1.Controls.Add(this.buttonRecord);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(679, 56);
             this.panel1.TabIndex = 1;
             // 
-            // button1
+            // checkBoxCooldown
             // 
-            this.button1.Location = new System.Drawing.Point(93, 11);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 33);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Record";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.checkBoxCooldown.AutoSize = true;
+            this.checkBoxCooldown.Location = new System.Drawing.Point(551, 30);
+            this.checkBoxCooldown.Name = "checkBoxCooldown";
+            this.checkBoxCooldown.Size = new System.Drawing.Size(73, 17);
+            this.checkBoxCooldown.TabIndex = 3;
+            this.checkBoxCooldown.Text = "Cooldown";
+            this.checkBoxCooldown.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // checkBoxKeyboard
             // 
-            this.button2.Location = new System.Drawing.Point(12, 11);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 33);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Play";
-            this.button2.UseVisualStyleBackColor = true;
+            this.checkBoxKeyboard.AutoSize = true;
+            this.checkBoxKeyboard.Location = new System.Drawing.Point(551, 11);
+            this.checkBoxKeyboard.Name = "checkBoxKeyboard";
+            this.checkBoxKeyboard.Size = new System.Drawing.Size(71, 17);
+            this.checkBoxKeyboard.TabIndex = 7;
+            this.checkBoxKeyboard.Text = "Keyboard";
+            this.checkBoxKeyboard.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // checkBoxMouseClick
             // 
-            this.button3.Location = new System.Drawing.Point(203, 11);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 33);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Save";
-            this.button3.UseVisualStyleBackColor = true;
+            this.checkBoxMouseClick.AutoSize = true;
+            this.checkBoxMouseClick.Checked = true;
+            this.checkBoxMouseClick.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxMouseClick.Location = new System.Drawing.Point(412, 30);
+            this.checkBoxMouseClick.Name = "checkBoxMouseClick";
+            this.checkBoxMouseClick.Size = new System.Drawing.Size(83, 17);
+            this.checkBoxMouseClick.TabIndex = 6;
+            this.checkBoxMouseClick.Text = "Mouse click";
+            this.checkBoxMouseClick.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // checkBoxMouseMovement
             // 
-            this.button4.Location = new System.Drawing.Point(284, 11);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 33);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "Load";
-            this.button4.UseVisualStyleBackColor = true;
+            this.checkBoxMouseMovement.AutoSize = true;
+            this.checkBoxMouseMovement.Location = new System.Drawing.Point(412, 11);
+            this.checkBoxMouseMovement.Name = "checkBoxMouseMovement";
+            this.checkBoxMouseMovement.Size = new System.Drawing.Size(110, 17);
+            this.checkBoxMouseMovement.TabIndex = 2;
+            this.checkBoxMouseMovement.Text = "Mouse movement";
+            this.checkBoxMouseMovement.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // buttonLoad
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(412, 11);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(110, 17);
-            this.checkBox1.TabIndex = 2;
-            this.checkBox1.Text = "Mouse movement";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.buttonLoad.Location = new System.Drawing.Point(284, 11);
+            this.buttonLoad.Name = "buttonLoad";
+            this.buttonLoad.Size = new System.Drawing.Size(75, 33);
+            this.buttonLoad.TabIndex = 5;
+            this.buttonLoad.Text = "Load";
+            this.buttonLoad.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // buttonSave
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Checked = true;
-            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox2.Location = new System.Drawing.Point(412, 30);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(83, 17);
-            this.checkBox2.TabIndex = 6;
-            this.checkBox2.Text = "Mouse click";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.buttonSave.Location = new System.Drawing.Point(203, 11);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(75, 33);
+            this.buttonSave.TabIndex = 4;
+            this.buttonSave.Text = "Save";
+            this.buttonSave.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // buttonPlay
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(551, 11);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(71, 17);
-            this.checkBox3.TabIndex = 7;
-            this.checkBox3.Text = "Keyboard";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.buttonPlay.Location = new System.Drawing.Point(12, 11);
+            this.buttonPlay.Name = "buttonPlay";
+            this.buttonPlay.Size = new System.Drawing.Size(75, 33);
+            this.buttonPlay.TabIndex = 3;
+            this.buttonPlay.Text = "Play";
+            this.buttonPlay.UseVisualStyleBackColor = true;
+            this.buttonPlay.Click += new System.EventHandler(this.buttonPlay_Click);
             // 
-            // checkBox4
+            // buttonRecord
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(551, 30);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(73, 17);
-            this.checkBox4.TabIndex = 3;
-            this.checkBox4.Text = "Cooldown";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.buttonRecord.Location = new System.Drawing.Point(93, 11);
+            this.buttonRecord.Name = "buttonRecord";
+            this.buttonRecord.Size = new System.Drawing.Size(75, 33);
+            this.buttonRecord.TabIndex = 2;
+            this.buttonRecord.Text = "Record";
+            this.buttonRecord.UseVisualStyleBackColor = true;
+            this.buttonRecord.Click += new System.EventHandler(this.buttonRecord_Click);
             // 
             // Form1
             // 
@@ -147,6 +148,7 @@
             this.ShowIcon = false;
             this.Text = "Mouse Recorder";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -155,14 +157,14 @@
 
         #endregion
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button buttonPlay;
+        private System.Windows.Forms.Button buttonRecord;
+        private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.Button buttonLoad;
+        private System.Windows.Forms.CheckBox checkBoxCooldown;
+        private System.Windows.Forms.CheckBox checkBoxKeyboard;
+        private System.Windows.Forms.CheckBox checkBoxMouseClick;
+        private System.Windows.Forms.CheckBox checkBoxMouseMovement;
     }
 }
 
