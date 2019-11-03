@@ -7,7 +7,7 @@ namespace MouseRecorder
     {
         private bool isRecording = false;
 
-
+        private MouseHook mh = null;
         private KeyboardHook kh = null;
 
         public Form1()
@@ -26,12 +26,14 @@ namespace MouseRecorder
             {
                 //Start record mouse/keyboard
                 if (checkBoxKeyboard.Checked) StartKeyboardRecord();
+                if (checkBoxMouseClick.Checked) StartMouseRecord();
                 buttonRecord.Text = "Stop record";
             }
             else
             {
                 //Stop record mouse/keyboard
                 if (kh != null) StopKeyboardRecord();
+                if (mh != null) StopMouseRecord();
                 buttonRecord.Text = "Record";
             }
 
@@ -42,12 +44,27 @@ namespace MouseRecorder
 
         private void buttonPlay_Click(object sender, EventArgs e)
         {
-
+           
         }
 
         private void Kh_KeyboardDownEvent(object sender, Keys key)
         {
-            MessageBox.Show(key + "");
+            MessageBox.Show("Down: " + key);
+        }
+
+        private void Kh_KeyboardUpEvent(object sender, Keys key)
+        {
+            MessageBox.Show("Up: " + key);
+        }
+
+        private void Mh_MouseDownEvent(object sender, MouseButtons key)
+        {
+            MessageBox.Show("Mouse down: " + key);
+        }
+
+        private void Mh_MouseUpEvent(object sender, MouseButtons key)
+        {
+            MessageBox.Show("Mouse up: " + key);
         }
 
 
@@ -58,6 +75,7 @@ namespace MouseRecorder
                 kh = new KeyboardHook();
                 kh.SetHook();
                 kh.KeyboardDownEvent += Kh_KeyboardDownEvent;
+                kh.KeyboardUpEvent += Kh_KeyboardUpEvent;
             }
         }
 
@@ -67,6 +85,26 @@ namespace MouseRecorder
             {
                 kh.UnHook();
                 kh = null;
+            }
+        }
+
+        private void StartMouseRecord()
+        {
+            if (mh == null)
+            {
+                mh = new MouseHook();
+                mh.SetHook();
+                mh.MouseDownEvent += Mh_MouseDownEvent;
+                mh.MouseUpEvent += Mh_MouseUpEvent;
+            }
+        }
+
+        private void StopMouseRecord()
+        {
+            if (mh != null)
+            {
+                mh.UnHook();
+                mh = null;
             }
         }
     }
