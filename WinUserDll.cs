@@ -3,6 +3,7 @@ using System.Runtime.InteropServices;
 
 namespace MouseRecorder
 {
+    //Source code: https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-setwindowshookexa
     class WinUserDll
     {
         public delegate int HookProc(int nCode, IntPtr wParam, IntPtr lParam);
