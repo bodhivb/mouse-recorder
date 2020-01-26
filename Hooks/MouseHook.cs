@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace MouseRecorder
 {
-    class MouseHook
+    public class MouseHook
     {
         private int hookId;
         public WinUserDll.HookProc hookProc;
@@ -19,8 +19,8 @@ namespace MouseRecorder
 
         public struct POINT
         {
-            private int x;
-            private int y;
+            public int x;
+            public int y;
         }
 
         private struct MSLLHOOKSTRUC
@@ -49,26 +49,26 @@ namespace MouseRecorder
             {
                 if (wParam == (IntPtr)WM_MOUSEMOVE)
                 {
-                    if (MouseMoveEvent != null) MouseMoveEvent(this, ((MSLLHOOKSTRUC)Marshal.PtrToStructure(lParam, typeof(MSLLHOOKSTRUC))).pt);
+                    if (MouseMoveEvent != null) MouseMoveEvent(this, GetMousePoint(lParam));
                 }
                 else
                 {
                     switch ((Int32)wParam)
                     {
                         case WM_LBUTTONDOWN:
-                            if (MouseDownEvent != null) MouseDownEvent(this, MouseButtons.Left);
+                            if (MouseDownEvent != null) MouseDownEvent(this, GetMousePoint(lParam), MouseButtons.Left);
                             break;
 
                         case WM_LBUTTONUP:
-                            if (MouseUpEvent != null) MouseUpEvent(this, MouseButtons.Left);
+                            if (MouseUpEvent != null) MouseUpEvent(this, GetMousePoint(lParam), MouseButtons.Left);
                             break;
 
                         case WM_RBUTTONDOWN:
-                            if (MouseDownEvent != null) MouseDownEvent(this, MouseButtons.Right);
+                            if (MouseDownEvent != null) MouseDownEvent(this, GetMousePoint(lParam), MouseButtons.Right);
                             break;
 
                         case WM_RBUTTONUP:
-                            if (MouseUpEvent != null) MouseUpEvent(this, MouseButtons.Right);
+                            if (MouseUpEvent != null) MouseUpEvent(this, GetMousePoint(lParam), MouseButtons.Right);
                             break;
                     }
                 }
@@ -77,8 +77,13 @@ namespace MouseRecorder
             return WinUserDll.CallNextHookEx(hookId, nCode, wParam, lParam);
         }
 
+        private POINT GetMousePoint (IntPtr lParam)
+        {
+            return ((MSLLHOOKSTRUC)Marshal.PtrToStructure(lParam, typeof(MSLLHOOKSTRUC))).pt;
+        }
+
         public delegate void MousePointHandler(object sender, POINT pt);
-        public delegate void MouseHandler(object sender, MouseButtons key);
+        public delegate void MouseHandler(object sender, POINT pt, MouseButtons key);
         public event MousePointHandler MouseMoveEvent;
         public event MouseHandler MouseDownEvent;
         public event MouseHandler MouseUpEvent;

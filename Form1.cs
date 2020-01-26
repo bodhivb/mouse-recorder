@@ -47,13 +47,18 @@ namespace MouseRecorder
         {
             if (data is MouseData)
             {
-                timelineView.Items.Add(new ListViewItem(new string[] { "Mouse", "Up", (data as MouseData).mouse.ToString() }));
+                timelineView.Items.Add(new ListViewItem(new string[] {
+                    "Mouse",
+                    (data as MouseData).mouse.ToString(),
+                    "X: " + (data as MouseData).point.x + " Y: "+ (data as MouseData).point.y
+                }));
 
             } else if (data is KeyboardData)
             {
                 timelineView.Items.Add(new ListViewItem(new string[] { "Keyboard", "Up", (data as KeyboardData).keyboard.ToString() }));
             }
 
+            //Set items scroll to bottom
             timelineView.Items[timelineView.Items.Count - 1].EnsureVisible();
         }
 

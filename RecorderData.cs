@@ -56,7 +56,6 @@ namespace MouseRecorder
         }
 
 
-
         private void Kh_KeyboardDownEvent(object sender, Keys key) {
             //data.Add(new KeyboardData(data.Count, key));
         }
@@ -65,12 +64,12 @@ namespace MouseRecorder
             OnNewData(new KeyboardData(data.Count, key));
         }
 
-        private void Mh_MouseDownEvent(object sender, MouseButtons key) {
+        private void Mh_MouseDownEvent(object sender, MouseHook.POINT pt, MouseButtons key) {
             //data.Add(new MouseData(data.Count, key));
         }
 
-        private void Mh_MouseUpEvent(object sender, MouseButtons key) {
-            OnNewData(new MouseData(data.Count, key));
+        private void Mh_MouseUpEvent(object sender, MouseHook.POINT pt, MouseButtons key) {
+            OnNewData(new MouseData(data.Count, pt, key));
         }
 
     }
