@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using MouseRecorder.Interfaces;
+using System.Threading;
 
 namespace MouseRecorder
 {
@@ -17,10 +18,15 @@ namespace MouseRecorder
         private void Form1_Load(object sender, EventArgs e)
         {
             recorderData = new RecorderData();
-            recorderData.OnNewData += addData;
+            recorderData.OnNewData += AddData;
         }
 
         private void buttonRecord_Click(object sender, EventArgs e)
+        {
+            Recording();
+        }
+
+        private void Recording()
         {
             if (!isRecording)
             {
@@ -43,7 +49,7 @@ namespace MouseRecorder
         }
 
 
-        private void addData(HookData data)
+        private void AddData(HookData data)
         {
             if (data is MouseData)
             {
@@ -64,7 +70,30 @@ namespace MouseRecorder
 
         private void buttonPlay_Click(object sender, EventArgs e)
         {
-            
+            PlayRecorder();
+        }
+
+        public void PlayRecorder()
+        {
+            if (isRecording)
+            {
+                //Stop first recording
+                Recording();
+            }
+
+            foreach (HookData data in recorderData.data)
+            {
+                if (data is MouseData)
+                {
+                    MouseRecorder.Events.PlayEvent.PlayMouse(data as MouseData);
+                }
+                else if (data is KeyboardData)
+                {
+                    MouseRecorder.Events.PlayEvent.PlayKeyboard(data as KeyboardData);
+                }
+
+                Thread.Sleep(100);
+            }
         }
     }
 }
