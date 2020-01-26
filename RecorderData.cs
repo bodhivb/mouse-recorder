@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using System.Collections.Generic;
 using MouseRecorder.Interfaces;
+using MouseRecorder.Hooks;
 
 namespace MouseRecorder
 {
@@ -54,7 +55,6 @@ namespace MouseRecorder
                 mh = null;
             }
         }
-
 
         private void Kh_KeyboardDownEvent(object sender, Keys key) {
             //data.Add(new KeyboardData(data.Count, key));

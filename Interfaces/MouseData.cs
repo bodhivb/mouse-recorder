@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using MouseRecorder.Hooks;
+using System.Windows.Forms;
 
 namespace MouseRecorder.Interfaces
 {

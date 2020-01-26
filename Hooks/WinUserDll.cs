@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace MouseRecorder
+namespace MouseRecorder.Hooks
 {
     //Source code: https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-setwindowshookexa
     public class WinUserDll
