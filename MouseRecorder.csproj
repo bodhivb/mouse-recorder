@@ -74,6 +74,9 @@
     </Compile>
     <Compile Include="Hooks\KeyboardHook.cs" />
     <Compile Include="Hooks\MouseHook.cs" />
+    <Compile Include="Interfaces\HookData.cs" />
+    <Compile Include="Interfaces\KeyboardData.cs" />
+    <Compile Include="Interfaces\MouseData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Hooks\WinUserDll.cs" />
