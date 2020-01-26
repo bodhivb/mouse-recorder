@@ -37,6 +37,10 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonPlay = new System.Windows.Forms.Button();
             this.buttonRecord = new System.Windows.Forms.Button();
+            this.timelineView = new System.Windows.Forms.ListView();
+            this.Type = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Action = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Value = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,6 +74,8 @@
             // checkBoxKeyboard
             // 
             this.checkBoxKeyboard.AutoSize = true;
+            this.checkBoxKeyboard.Checked = true;
+            this.checkBoxKeyboard.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxKeyboard.Location = new System.Drawing.Point(551, 11);
             this.checkBoxKeyboard.Name = "checkBoxKeyboard";
             this.checkBoxKeyboard.Size = new System.Drawing.Size(71, 17);
@@ -137,11 +143,37 @@
             this.buttonRecord.UseVisualStyleBackColor = true;
             this.buttonRecord.Click += new System.EventHandler(this.buttonRecord_Click);
             // 
+            // timelineView
+            // 
+            this.timelineView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Type,
+            this.Action,
+            this.Value});
+            this.timelineView.Location = new System.Drawing.Point(12, 91);
+            this.timelineView.Name = "timelineView";
+            this.timelineView.Size = new System.Drawing.Size(655, 158);
+            this.timelineView.TabIndex = 2;
+            this.timelineView.UseCompatibleStateImageBehavior = false;
+            this.timelineView.View = System.Windows.Forms.View.Details;
+            // 
+            // Type
+            // 
+            this.Type.Width = 200;
+            // 
+            // Action
+            // 
+            this.Action.Width = 200;
+            // 
+            // Value
+            // 
+            this.Value.Width = 200;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(679, 261);
+            this.Controls.Add(this.timelineView);
             this.Controls.Add(this.panel1);
             this.MinimumSize = new System.Drawing.Size(690, 300);
             this.Name = "Form1";
@@ -165,6 +197,10 @@
         private System.Windows.Forms.CheckBox checkBoxKeyboard;
         private System.Windows.Forms.CheckBox checkBoxMouseClick;
         private System.Windows.Forms.CheckBox checkBoxMouseMovement;
+        private System.Windows.Forms.ListView timelineView;
+        private System.Windows.Forms.ColumnHeader Type;
+        private System.Windows.Forms.ColumnHeader Action;
+        private System.Windows.Forms.ColumnHeader Value;
     }
 }
 
