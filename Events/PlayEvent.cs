@@ -13,7 +13,7 @@
 
         public static void PlayMouse(Interfaces.MouseData m)
         {
-            //Set mouse position
+            // Set mouse position
             WinUserDll.SetCursorPos(m.point.x, m.point.y);
 
             switch (m.mouse)
@@ -29,8 +29,10 @@
         }
 
         public static void PlayKeyboard (Interfaces.KeyboardData k)
-        { 
+        {
+            // Simulate a key press
             WinUserDll.keybd_event((byte)k.keyboard, 0, KEYEVENTF_EXTENDEDKEY, 0);
+            // Simulate a key release
             WinUserDll.keybd_event((byte)k.keyboard, 0, KEYEVENTF_EXTENDEDKEY | KEYEVENTF_KEYUP, 0);
         }
     }

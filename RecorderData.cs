@@ -53,6 +53,11 @@ namespace MouseRecorder
             if (mh != null) {
                 mh.UnHook();
                 mh = null;
+
+                // Remove the last mouse click event (that is, pressing the 'stop recording' button)
+                if (data.Count > 0) {
+                    data.RemoveAt(data.Count - 1);
+                }
             }
         }
 

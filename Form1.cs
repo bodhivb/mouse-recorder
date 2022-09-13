@@ -30,7 +30,7 @@ namespace MouseRecorder
         {
             if (!isRecording)
             {
-                //Start record mouse/keyboard
+                // Start record mouse/keyboard
                 //TODO CALL DATA EMPTHY
                 timelineView.Items.Clear();
                 if (checkBoxKeyboard.Checked) recorderData.StartKeyboardRecord();
@@ -39,7 +39,7 @@ namespace MouseRecorder
             }
             else
             {
-                //Stop record mouse/keyboard
+                // Stop record mouse/keyboard
                 recorderData.StopKeyboardRecord();
                 recorderData.StopMouseRecord();
                 buttonRecord.Text = "Record";
