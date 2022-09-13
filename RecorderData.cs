@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using MouseRecorder.Interfaces;
 using MouseRecorder.Hooks;
 
@@ -11,20 +11,12 @@ namespace MouseRecorder
         private MouseHook mh = null;
         private KeyboardHook kh = null;
 
-        public List<HookData> data = new List<HookData>();
-
-        //Event
-        public delegate void DataAction(HookData data);
-        public event DataAction OnNewData; 
-
-        public RecorderData()
-        {
-            OnNewData += (d) => data.Add(d);
-        }
+        // ObservableCollection class: https://docs.microsoft.com/en-us/dotnet/api/system.collections.objectmodel.observablecollection-1
+        public ObservableCollection<HookData> data = new ObservableCollection<HookData>();
 
         public void StartKeyboardRecord() {
             if (kh == null) {
-                data = new List<HookData>();
+                if (data.Count > 0) data.Clear();
                 kh = new KeyboardHook();
                 kh.SetHook();
                 kh.KeyboardDownEvent += Kh_KeyboardDownEvent;
@@ -41,7 +33,7 @@ namespace MouseRecorder
 
         public void StartMouseRecord() {
             if (mh == null) {
-                data = new List<HookData>();
+                if (data.Count > 0) data.Clear();
                 mh = new MouseHook();
                 mh.SetHook();
                 mh.MouseDownEvent += Mh_MouseDownEvent;
@@ -62,19 +54,19 @@ namespace MouseRecorder
         }
 
         private void Kh_KeyboardDownEvent(object sender, Keys key) {
-            //data.Add(new KeyboardData(data.Count, key));
+            data.Add(new KeyboardData(data.Count, key));
         }
 
         private void Kh_KeyboardUpEvent(object sender, Keys key) {
-            OnNewData(new KeyboardData(data.Count, key));
+            //data.Add(new KeyboardData(data.Count, key));
         }
 
         private void Mh_MouseDownEvent(object sender, MouseHook.POINT pt, MouseButtons key) {
-            //data.Add(new MouseData(data.Count, key));
+            //data.Add(new MouseData(data.Count, pt, key));
         }
 
         private void Mh_MouseUpEvent(object sender, MouseHook.POINT pt, MouseButtons key) {
-            OnNewData(new MouseData(data.Count, pt, key));
+            data.Add(new MouseData(data.Count, pt, key));
         }
 
     }
